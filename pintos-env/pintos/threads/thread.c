@@ -11,6 +11,7 @@
 #include "threads/switch.h"
 #include "threads/synch.h"
 #include "threads/vaddr.h"
+// Assignment 1
 #include "devices/timer.h"
 #ifdef USERPROG
 #include "userprog/process.h"
@@ -26,6 +27,7 @@
 static struct list ready_list;
 
 // Here we need a list for sleeping threads
+// Assignment 1
 static struct list sleeping_list;
 
 /* List of all processes.  Processes are added to this list
@@ -74,6 +76,7 @@ static void *alloc_frame (struct thread *, size_t size);
 static void schedule (void);
 void thread_schedule_tail (struct thread *prev);
 static tid_t allocate_tid (void);
+// Assignment 1
 void check_sleeping_threads(void);
 
 /* Initializes the threading system by transforming the code
@@ -96,6 +99,7 @@ thread_init (void)
 
   lock_init (&tid_lock);
   list_init (&ready_list);
+  // Assignment 1
   list_init (&sleeping_list);
   list_init (&all_list);
 
@@ -106,6 +110,7 @@ thread_init (void)
   initial_thread->tid = allocate_tid ();
 }
 
+// Assignment 1
 void
 check_sleeping_threads(void)
 {
@@ -148,6 +153,7 @@ thread_start (void)
   sema_down (&idle_started);
 }
 
+// Assignment 1
 void
 thread_sleep(int64_t wakeup_at)
 {
@@ -184,6 +190,7 @@ thread_tick (void)
     intr_yield_on_return ();
 
   // check if there's any threads to awake
+  // Assignment 1
   check_sleeping_threads();
 }
 

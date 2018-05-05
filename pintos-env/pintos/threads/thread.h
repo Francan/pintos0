@@ -4,6 +4,7 @@
 #include <debug.h>
 #include <list.h>
 #include <stdint.h>
+// Assignment 1
 #include "threads/fpr_arith.h"
 
 /* States in a thread's life cycle. */
@@ -99,6 +100,7 @@ struct thread
     uint32_t *pagedir;                  /* Page directory. */
 #endif
 
+    // Assignment 1
     int64_t wakeup_at_tick;
 
     /* Owned by thread.c. */
@@ -141,6 +143,7 @@ void thread_set_nice (int);
 int thread_get_recent_cpu (void);
 int thread_get_load_avg (void);
 
+// Assignment 1
 void thread_sleep(int64_t wakeup_at);
 
 #endif /* threads/thread.h */
